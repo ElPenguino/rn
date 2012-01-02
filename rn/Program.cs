@@ -18,7 +18,7 @@ namespace rn
             Boolean ignorecase = false;
             String dir = ".";
             Match curMatch;
-            StringWrapper[] matchvalues;
+            String[] matchvalues;
             SearchOption recursive = SearchOption.TopDirectoryOnly;
             var p = new OptionSet()
             {
@@ -57,9 +57,9 @@ namespace rn
                 foreach (string file in files)
                 {
                     curMatch = matcher.Match(System.IO.Path.GetFileName(file));
-                    matchvalues = new StringWrapper[curMatch.Groups.Count-1];
-                    for (int i = 1; i < curMatch.Groups.Count; i++)
-                        matchvalues[i-1] = new StringWrapper(curMatch.Groups[i].Value);
+                    matchvalues = new String[curMatch.Groups.Count-1];
+                    for (int i = 0; i < curMatch.Groups.Count-1; i++)
+                        matchvalues[i] = curMatch.Groups[i+1].Value;
                     if (curMatch.Success)
                     {
                         if (testmode || verbose)
