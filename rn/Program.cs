@@ -87,9 +87,9 @@ namespace rn {
                 return input.Result(replacement);
         }
         static void ShowHelp(OptionSet p) {
-            Console.WriteLine("Usage: rn [OPTIONS] [MATCH REGEX] [REPLACE FORMAT]");
+            Console.WriteLine("Usage: rn [OPTIONS] [MATCH REGEX] [REPLACE REGEX]");
             Console.WriteLine("[MATCH REGEX] expects a Perl-compatible regular expression.");
-            Console.WriteLine("[REPLACE FORMAT] expects a .NET-compatible formatting string.");
+            Console.WriteLine("[REPLACE REGEX] expects a Perl-compatible replacement regular expression.");
             Console.WriteLine();
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
